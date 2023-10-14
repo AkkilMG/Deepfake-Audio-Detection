@@ -66,7 +66,14 @@ Set a threshold energy level below which the audio is considered silent or absen
 ##### Detection
 Analyze the energy levels within the audio clip. If the energy levels consistently stay below the threshold, you can conclude that there is no significant audio present.
 
-## Weekly A
+
+## Work
+
+- [Teammate grinds](https://github.com/Srujan-rai/Deepfake_voice_detection)
+- [Colab](https://colab.research.google.com/drive/1xCx5LCsbY1FbHN5xT8MQJwNENovIyLMC)
+
+
+## Weekly Assigns
 
 ### [Week 1] Understanding Deep learning Neural Network Models
 

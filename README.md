@@ -70,7 +70,8 @@ Analyze the energy levels within the audio clip. If the energy levels consistent
 ## Work
 
 - [Teammate grinds](https://github.com/Srujan-rai/Deepfake_voice_detection)
-- [Colab](https://colab.research.google.com/drive/1xCx5LCsbY1FbHN5xT8MQJwNENovIyLMC)
+- [Colab Audio](https://colab.research.google.com/drive/1xCx5LCsbY1FbHN5xT8MQJwNENovIyLMC)
+- [Colab Model](https://colab.research.google.com/drive/11kF8o5FfXf9YP_Pnp45UiQeZvnHTH5VC)
 
 
 ## Weekly Assigns

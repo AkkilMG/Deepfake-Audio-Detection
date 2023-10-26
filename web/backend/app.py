@@ -1,9 +1,9 @@
 # (c) 2022-2023, Akkil M G (https://github.com/HeimanPictures)
 # License: GNU General Public License v3.0
 
-
 import uvicorn
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import *
@@ -22,6 +22,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.get("/")
+async def home():
+    return JSONResponse({ "alive": True })
 
 app.include_router(app_router.router, prefix="/api/v1")
 

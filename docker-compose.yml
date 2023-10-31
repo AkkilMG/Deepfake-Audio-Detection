@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  backend:
+    build:
+      context: ./web/backend/
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
+    expose:
+      - 8000
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./web/frontend/
+      dockerfile: ./Dockerfile
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000

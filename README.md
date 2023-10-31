@@ -1,5 +1,10 @@
-# Material
+# Deepfake Audio Detection
 
+## Installation
+
+```sh
+docker-compose up
+```
 
 ## Dashboard
 

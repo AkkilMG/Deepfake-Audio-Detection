@@ -6,7 +6,7 @@ from tensorflow import keras
 import matplotlib.pyplot as plt
 from scipy.io import wavfile
 
-model = keras.models.load_model('deepfake_model.h5')
+model = keras.models.load_model('./utils/model/deepfake_model.h5')
 
 image_height = 640
 image_width = 480

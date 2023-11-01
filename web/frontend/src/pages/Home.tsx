@@ -13,13 +13,13 @@ export const Home: React.FC  = () => {
         <h2 className="mt-5 text-3xl font-bold text-gray-100">
           File Upload!
         </h2>
-        <p className="mt-2 text-sm text-gray-400">Lorem ipsum is placeholder text.</p>
+        <p className="mt-2 text-sm text-gray-400">Upload the wave form image of the audio.</p>
       </div>
           <form className="mt-8 space-y-3" action="#" method="POST">
-            <div className="grid grid-cols-1 space-y-2">
+            {/* <div className="grid grid-cols-1 space-y-2">
                 <label className="text-sm font-bold text-gray-300 tracking-wide">Title</label>
                     <input className="text-base text-gray-300 p-2 border border-gray-500 bg-gray-700 rounded-lg focus:outline-none focus:border-indigo-500" type="" placeholder="username@gmail.com" />
-            </div>
+            </div> */}
             <div className="grid grid-cols-1 space-y-2">
                             <label className="text-sm font-bold text-gray-300 tracking-wide">Attach Document</label>
                 <div className="flex items-center justify-center w-full">

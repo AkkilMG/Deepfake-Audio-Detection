@@ -3,7 +3,22 @@
 @tailwind utilities;
 
 
+.marquee {
+  animation: marquee 10s linear infinite; /* Adjust duration as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  display: inline-block;
+}
 
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
 .has-mask {
     position: absolute;

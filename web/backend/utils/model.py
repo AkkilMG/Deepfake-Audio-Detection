@@ -6,17 +6,15 @@ from tensorflow import keras
 import matplotlib.pyplot as plt
 from scipy.io import wavfile
 
-model = keras.models.load_model('./utils/model/deepfake_model.h5')
-
 image_height = 640
 image_width = 480
 
 
 def process_image(file):
     # filename = secure_filename(file.filename)
-    file_path = file
-    file.save(file_path)
-    img = image.load_img(file_path, target_size=(image_height, image_width))
+    # file_path = file
+    # file.save(file)
+    img = image.load_img(file, target_size=(image_height, image_width))
     img = image.img_to_array(img)
     img = np.expand_dims(img, axis=0)
     img = img / 255.0
@@ -24,11 +22,12 @@ def process_image(file):
 
 def model(file):
     img = process_image(file)
+    model = keras.models.load_model(filepath='./utils/model/deepfake_model.h5')
     predictions = model.predict(img)
     class_names = ['fake', 'real']
     predicted_class_index = np.argmax(predictions)
     predicted_class = class_names[predicted_class_index]
-    return { "success": True, "prediction": predicted_class, "image": f'uploads/plot/{file.filename}' }
+    return { "success": True, "prediction": predicted_class, "image": file }
 
 def prediction(file):
     try:
@@ -38,13 +37,12 @@ def prediction(file):
         plt.plot(time, audio_data)
         plt.xlabel("Time")
         plt.ylabel("Amplitude")
-        plt.title("Waveform of " + file)
-        plot_filename = os.path.splitext(file) [0] + ".png"
-        plot_path = os.path.join("uploads/plot", plot_filename)
+        plt.title("Waveform")
+        plot_path = os.path.splitext(file) [0] + ".png"
         plt.savefig(plot_path)
         plt.close()
-        return model(plot_path)
+        ml = model(plot_path)
+        return ml
     except Exception as e:
-        return { "success": True, "message": f"Error: {e}" }
-
+        return { "success": False, "message": f"Error: {e}" }
 

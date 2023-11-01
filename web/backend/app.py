@@ -1,7 +1,7 @@
 # (c) 2022-2023, Akkil M G (https://github.com/HeimanPictures)
 # License: GNU General Public License v3.0
 
-import uvicorn
+import uvicorn, os
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware

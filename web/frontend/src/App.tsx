@@ -4,6 +4,7 @@ import {Routes, BrowserRouter as Router, Route } from 'react-router-dom';
 import './assets/App.css';
 import { Home } from './pages/Home';
 import { Header } from './pages/components/Header';
+import { Footer } from './pages/components/Footer';
 
 export const App: React.FC  = () => {
   return (
@@ -13,6 +14,7 @@ export const App: React.FC  = () => {
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
+      <Footer />
       </Router>
     </div>
   );

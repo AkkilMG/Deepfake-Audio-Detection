@@ -10,7 +10,7 @@ import '../assets/App.css';
 
 export const Home: React.FC  = () => {
   const [image, setImage] = useState();
-  const [predict, setPredict] = useState(false);
+  const [predict, setPredict] = useState('fake');
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState('');
 
@@ -33,7 +33,6 @@ export const Home: React.FC  = () => {
       formData.append('file', file, file.name);
       const config = {
         headers: {
-          // accept: 'application/json',
           'Content-Type': 'multipart/form-data',
         },
         onUploadProgress: (progressEvent: any) => {
@@ -45,12 +44,11 @@ export const Home: React.FC  = () => {
       axios
         .post('http://localhost:8000/api/v1/convert', formData, config)
         .then((response: any) => {
-          // console.log(response.data['success']);
           if (response.data['success'] === true) {
-            setPredict(Boolean(response.data['predict']));
+            setPredict(response.data['predict']);
             setImage(response.data['image']);
           } else {
-            setError('');
+            setError(response.data['message']);
             setProgress(0);
             alert('File uploaded not successful.');
           }
@@ -74,7 +72,7 @@ export const Home: React.FC  = () => {
               {/* <img className="object-center h-32 has-mask opacity-20" src={image} alt='Audio Image' /> */}
               <img src={image} width='512px' alt="Audio Image" className="w-full h-auto" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                { predict ? (
+                { (predict==="real") ? (
                   <img src="/checkmark.svg" alt="Prediction" width="124px" className="w-1/2 h-auto" />
                 ): (
                   <img src="/crossmark.svg" alt="Prediction" width="124px" className="w-1/2 h-auto" />
@@ -82,7 +80,7 @@ export const Home: React.FC  = () => {
                 </div>
               </div>
               <div className='relative flex items-center justify-center '>
-                  <span className="items-center text-2xl font-bold tracking-wide text-gray-300">The given audio is { predict? 'Real': 'Fake' }.</span>
+                  <span className="items-center text-2xl font-bold tracking-wide text-gray-300">The given audio is { (predict==="real")? 'Real': 'Fake' }.</span>
                   <br />
               </div>
               <Marquee className="text-red-500">
